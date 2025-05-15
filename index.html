@@ -1,89 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <!-- Don't use this in production: -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React </title>
 </head>
 
 <body>
+
   <div id="root"></div>
-
-  <script type="text/babel">  //hooks   
-
-    const Button = () => {
-      return <button>comprar</button>
-    }
-
-    const MainNav = () => {
-      return (
-        <nav>
-          <ul>
-            <li><a href="#">link 1</a></li>
-            <li><a href="#">link 2</a></li>
-            <li><a href="#">link 3</a></li>
-          </ul>
-        </nav>
-      );
-    }
-
-    const Produtos = () => {       // hooks
-
-      const [contar, setContar] = React.useState(0);  //criado o estado para "contar"
-      const produto1 = "roupa";
-      const produto2 = "comida";
-
-      function handleClick() {
-        setContar(contar + 1);
-      }
-
-      return (
-        <div>
-          <button>Comprar {contar}</button>
-          <button onClick={handleClick}>{produto1}</button>
-          <button>{produto2}</button>
-        </div>
-      );
-    }
-
-    const Comprar = () => {  //desestruturando
-      const [count, setCount] = React.useState(5);
-
-      function handleClick() {
-        setCount(count + 4);  //reatividade
-
-      }
-
-      return (
-        <div>
-          <button onClick={handleClick}>comprar: {count}</button>
-          <p>total 1: {count}</p>
-          <p>total 2: {count * 123}</p>
-        </div>
-      );
-    }
-
-    const App = () => {
-      return (
-        <div>
-          <h1>teste</h1>
-          <Button />
-          <MainNav />
-          <Produtos />
-          <Comprar />
-        </div>
-      );
-    }
-
-    const container = document.getElementById('root');
-    const root = ReactDOM.createRoot(container);
-    root.render(<App />);
-  </script>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
