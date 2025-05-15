@@ -12,24 +12,70 @@
 </head>
 
 <body>
-
   <div id="root"></div>
 
-  <script type="text/babel">
+  <script type="text/babel">  //hooks   
 
-    function Button() {
-      const [total, setTotal] = React.useState(0); //função react, estado reativo!    
-      return <button onClick={() => setTotal(total + 1)}>Adicionar botão{total}</button>  //soma 1 em total  +1  por onclick
+    const Button = () => {
+      return <button>comprar</button>
     }
 
-    function App() {
+    const MainNav = () => {
+      return (
+        <nav>
+          <ul>
+            <li><a href="#">link 1</a></li>
+            <li><a href="#">link 2</a></li>
+            <li><a href="#">link 3</a></li>
+          </ul>
+        </nav>
+      );
+    }
+
+    const Produtos = () => {       // hooks
+
+      const [contar, setContar] = React.useState(0);  //criado o estado para "contar"
+      const produto1 = "roupa";
+      const produto2 = "comida";
+
+      function handleClick() {
+        setContar(contar + 1);
+      }
+
       return (
         <div>
-          <h1>Teste</h1>
+          <button>Comprar {contar}</button>
+          <button onClick={handleClick}>{produto1}</button>
+          <button>{produto2}</button>
+        </div>
+      );
+    }
 
-          <Button />
-          <Button />
+    const Comprar = () => {  //desestruturando
+      const [count, setCount] = React.useState(5);
 
+      function handleClick() {
+        setCount(count + 4);  //reatividade
+
+      }
+
+      return (
+        <div>
+          <button onClick={handleClick}>comprar: {count}</button>
+          <p>total 1: {count}</p>
+          <p>total 2: {count * 123}</p>
+        </div>
+      );
+    }
+
+    const App = () => {
+      return (
+        <div>
+          <h1>teste</h1>
+          <Button />
+          <MainNav />
+          <Produtos />
+          <Comprar />
         </div>
       );
     }
@@ -38,7 +84,6 @@
     const root = ReactDOM.createRoot(container);
     root.render(<App />);
   </script>
-
 </body>
 
 </html>
